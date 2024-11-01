@@ -2,6 +2,15 @@ package oop_test;
 
 public class Kreis {
 
+    public static void main(String[] args) {
+        Kreis k1 = new Kreis(0, 0, 1);
+        Kreis k2 = k1;
+
+        k1.setRadius(3);
+        System.out.println(k2.getR());
+
+    }
+
     private double x;
     private double y;
     private double r;
