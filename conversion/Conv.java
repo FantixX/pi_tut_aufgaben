@@ -14,13 +14,11 @@ public class Conv {
 
         long stringLong = stringToLong(input, inputBase);
         String output = longToString(stringLong, outputBase);
-        System.out.println(output);
         System.out.printf("Base %d Output: %s", outputBase, output);
     }
 
     static long charToLong(char c) {
         long code = (long) c;
-
         if (code >= 65 && code <= 90) {
             return code - 55;
         }
@@ -53,9 +51,8 @@ public class Conv {
             char c = s.charAt(i);
             long code = charToLong(c);
             long exponent = Math.abs(i - s.length() + 1);
-            result += code * Math.pow(16, exponent);
+            result += code * Math.pow(base, exponent);
         }
-
         return result;
     }
 
