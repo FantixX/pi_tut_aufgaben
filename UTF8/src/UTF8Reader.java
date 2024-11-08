@@ -9,7 +9,11 @@ import java.io.IOException;
 
 public class UTF8Reader {
     public static void main(String[] args) {
-        try (var input = new FileInputStream("german.txt")) {
+        if (args.length != 1) {
+            System.out.println("Benutzung: java UTF8Reader <filename>");
+            return;
+        }
+        try (var input = new FileInputStream(args[0])) {
             int currentUnicode = 0;
             int expectContinuation = 0;
             for (var curr = input.read(); curr != -1; curr = input.read()) {
